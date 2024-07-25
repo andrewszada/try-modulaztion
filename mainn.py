@@ -10,19 +10,18 @@ def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def menu_principal():
-    while True:
-        limpar_tela()
-        print("_______________________________________")
-        print("______  Sistema de Gestão de Loja _____")
-        print("_______________________________________")
-        print("____   1 - Módulo Cliente         _____")
-        print("_____  2 - Módulo Produto/Vendas  _____")
-        print("_____  3 - Módulo Caixa           _____")
-        print("_____  4 - Módulo Carrinho        _____")
-        print("_____  5 - Módulo Administração   _____")
-        print("_____  0 - Sair                   _____")
-        op_princ = input("##### Escolha sua opção: ")
-        return op_princ
+    limpar_tela()
+    print("_______________________________________")
+    print("______  Sistema de Gestão de Loja _____")
+    print("_______________________________________")
+    print("____   1 - Módulo Cliente         _____")
+    print("_____  2 - Módulo Produto/Vendas  _____")
+    print("_____  3 - Módulo Caixa           _____")
+    print("_____  4 - Módulo Carrinho        _____")
+    print("_____  5 - Módulo Administração   _____")
+    print("_____  0 - Sair                   _____")
+    op_princ = input("##### Escolha sua opção: ")
+    return op_princ
 
 if __name__ == "__main__":
     op_princ = ''
@@ -33,7 +32,6 @@ if __name__ == "__main__":
             op_cliente = ''
             while op_cliente != '0':
                 op_cliente = cliente.modulo_cliente()
-                print()
                 if op_cliente == '1':
                     cliente.cadastrar_cliente()
                 elif op_cliente == '2':
@@ -42,8 +40,6 @@ if __name__ == "__main__":
                     cliente.alterar_cliente()
                 elif op_cliente == '4':
                     cliente.excluir_cliente()
-                elif op_cliente == '0':
-                    break
 
         elif op_princ == '2':
             op_produto = ''
@@ -57,14 +53,11 @@ if __name__ == "__main__":
                     produto.alterar_produto()
                 elif op_produto == '4':
                     produto.excluir_produtos()
-                elif op_produto == '0':
-                    menu_principal()
 
         elif op_princ == '3':
             op_caixa = ''
             while op_caixa != '0':
                 op_caixa = caixa.modulo_caixa()
-                print()
                 if op_caixa == '1':
                     caixa.caixa_estoque(produto)
                 elif op_caixa == '2':
@@ -74,7 +67,6 @@ if __name__ == "__main__":
             op_admin = ''
             while op_admin != '0':
                 op_admin = funcionarios.modulo_admin()
-                print()
                 if op_admin == '1':
                     funcionarios.cadastrar_funcionarios()
                 elif op_admin == '2':
@@ -83,5 +75,3 @@ if __name__ == "__main__":
                     funcionarios.alterar_funcionario()
                 elif op_admin == '4':
                     funcionarios.demitir_funcionario()
-                elif op_admin == '0':
-                    menu_principal()
